@@ -1,0 +1,23 @@
+ Future<void> Submitdata() async{
+        final  title = titlecontroller.text;
+        final bool isCompleted = false;
+        final int userId = 5;
+
+        final body = {
+          "todo" : title,
+          "completed" : isCompleted,
+          "userId" : userId,
+        };
+        final url  = Uri.parse('https://dummyjson.com/todos/add');
+
+        final response = await http.post(url,body: jsonEncode(body),
+          headers: { 'Content-Type': 'application/json' },
+        );
+
+
+        print(response.statusCode);
+        print(response.body);
+
+
+
+   }
